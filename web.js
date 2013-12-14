@@ -1,10 +1,10 @@
 
 
-var express = require('express')
-	, app = express();
-	
+var express = require('express'),
+	app = express();
+app.use(express.logger());	
 var fs=require('fs');
-app.use(express.logger());
+
 var htmlfile ="index.html";
 
 
@@ -13,7 +13,7 @@ app.get('/', function(request, response) {
   response.send(html);
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
